@@ -5,16 +5,20 @@ toaddr = 'mikkel.svagard@gmail.com'
 username = fromaddr
 password = 'RaspberryPi'
 
-
-text = socket.gethostbyname(socket.gethostname())
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("gmail.com",80))
+yourIP = (s.getsockname()[0])
+s.close()
+text = "Current IP: " + str(yourIP)
 print text
+
 
 msg = "\r\n".join([
   "Fom: " + fromaddr,
   "To: " + toaddr,
-  "Subject: Just a test",
+  "Subject: " + text,
   "",
-  text
+  ""
   ])
 
 
