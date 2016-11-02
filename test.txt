@@ -1,1 +1,11 @@
-"hei"
+do command: sudo vim /etc/rc.local
+#vim, nano, vi, text-editor
+
+add:
+(sleep10;python /home/pi/Python/sendMail.py)&
+exit 0
+#sleep for waiting for it to establish connection
+#& for running in background
+
+or: sudo crontab -e
+@reboot python /home/pi/Desktop/exemple.py &
